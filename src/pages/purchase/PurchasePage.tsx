@@ -1,14 +1,18 @@
 import { Button, Form, Input } from "antd";
 import { FC } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
+interface IFormValues {
+  name: string;
+  address: string;
+  email: string;
+}
 const PurchasePage: FC = () => {
-  const { productId } = useParams<{ productId: string }>();
-  const nagivate = useNavigate();
+  const navigate = useNavigate();
 
-  const onFinish = (values: any) => {
+  const onFinish = (values: IFormValues) => {
     console.log("Success:", values);
-    nagivate("/thank-you");
+    navigate("/thank-you");
   };
 
   return (
